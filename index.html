@@ -207,23 +207,39 @@
     .sol-grid{
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  gap:18px;
-  padding:0 32px;
-  background:#080808;
+  background:#242424;
+  overflow:hidden;
 }
-    .sol-card{
-      position:relative;overflow:hidden;
-      aspect-ratio:4/3;
-      cursor:default;
-      background:#080808;
-    }
-  .sol-card img{
-  width:84%;
-  height:84%;
+.sol-card{
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:4/3;
+  cursor:default;
+  background:#242424;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.sol-card:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  top:-15%;
+  right:-2px;
+  width:4px;
+  height:130%;
+  background:var(--orange);
+  transform:rotate(8deg);
+  transform-origin:center;
+  z-index:5;
+}
+.sol-card img{
+  width:92%;
+  height:92%;
   object-fit:contain;
   object-position:center;
   display:block;
-  margin:auto;
+  position:relative;
+  z-index:1;
   transition:filter 0.4s,transform 0.4s;
 }
     .sol-card-body{
